@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SilverCraftBot", "SilverCraftBot\SilverCraftBot.csproj", "{441152B5-94E2-4596-927F-ADCED8DFC4F6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{32AE899A-9D85-4C1B-AC12-BCB337FD3793} = {32AE899A-9D85-4C1B-AC12-BCB337FD3793}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discord.Addons.Interactive", "Discord.Addons.Interactive\Discord.Addons.Interactive.csproj", "{33837A06-3F95-419A-8038-7D97231012ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverBotData", "SilverBotData\SilverBotData.csproj", "{32AE899A-9D85-4C1B-AC12-BCB337FD3793}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverBotLiteData", "SilverBotLiteData\SilverBotLiteData.csproj", "{7FB85BD9-0F4B-4E54-87F3-2818B74B18DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverBotWeb", "SilverBotWeb\SilverBotWeb.csproj", "{B9FA157A-B6B6-4A47-9648-5A972B2986EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{441152B5-94E2-4596-927F-ADCED8DFC4F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{441152B5-94E2-4596-927F-ADCED8DFC4F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{441152B5-94E2-4596-927F-ADCED8DFC4F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{441152B5-94E2-4596-927F-ADCED8DFC4F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33837A06-3F95-419A-8038-7D97231012ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33837A06-3F95-419A-8038-7D97231012ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33837A06-3F95-419A-8038-7D97231012ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33837A06-3F95-419A-8038-7D97231012ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32AE899A-9D85-4C1B-AC12-BCB337FD3793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32AE899A-9D85-4C1B-AC12-BCB337FD3793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32AE899A-9D85-4C1B-AC12-BCB337FD3793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32AE899A-9D85-4C1B-AC12-BCB337FD3793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FB85BD9-0F4B-4E54-87F3-2818B74B18DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FB85BD9-0F4B-4E54-87F3-2818B74B18DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FB85BD9-0F4B-4E54-87F3-2818B74B18DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FB85BD9-0F4B-4E54-87F3-2818B74B18DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9FA157A-B6B6-4A47-9648-5A972B2986EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9FA157A-B6B6-4A47-9648-5A972B2986EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9FA157A-B6B6-4A47-9648-5A972B2986EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9FA157A-B6B6-4A47-9648-5A972B2986EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79316271-4E43-4172-A7F5-A1A331A87945}
+	EndGlobalSection
+EndGlobal

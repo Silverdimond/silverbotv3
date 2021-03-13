@@ -1,0 +1,110 @@
+﻿@page
+@model SilverBotWeb.Pages.LoginModel
+@using System.Net
+@using System.Text
+@using System.IO
+@using SilverBotData
+<style type="text/css">
+    @@font-face {
+        font-family: "Whitney";
+        src: url("Whitney-Medium.ttf");
+    }
+</style>
+@{
+    ViewData["Title"] = "big pp";
+    string code = Request.Query["code"].ToString();
+    if (string.IsNullOrEmpty(code))
+    {
+        Response.Redirect(token_lol.redirecturl);
+    }
+    else
+    {
+
+        HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create("https://discordapp.com/api/oauth2/token");
+        webRequest.Method = "POST";
+
+        byte[] byteArray = Encoding.UTF8.GetBytes(string.Format(token_lol.parameters, code));
+        webRequest.ContentType = "application/x-www-form-urlencoded";
+        webRequest.ContentLength = byteArray.Length;
+        Stream postStream = webRequest.GetRequestStream();
+
+        postStream.Write(byteArray, 0, byteArray.Length);
+        postStream.Close();
+        WebResponse response = webRequest.GetResponse();
+        postStream = response.GetResponseStream();
+        StreamReader reader = new StreamReader(postStream);
+        string responseFromServer = reader.ReadToEnd();
+
+        string tokenInfo = responseFromServer.Split(',')[0].Split(':')[1];
+        string access_token = tokenInfo.Trim().Substring(1, tokenInfo.Length - 3);
+        //request
+        HttpWebRequest webRequest1 = (HttpWebRequest)WebRequest.Create("https://discordapp.com/api/users/@me");
+        webRequest1.Method = "Get";
+        webRequest1.ContentLength = 0;
+        webRequest1.Headers.Add("Authorization", "Bearer " + access_token);
+        webRequest1.ContentType = "application/x-www-form-urlencoded";
+
+        string apiResponse1 = "";
+        using (HttpWebResponse response1 = webRequest1.GetResponse() as HttpWebResponse)
+        {
+            StreamReader reader1 = new StreamReader(response1.GetResponseStream());
+            apiResponse1 = reader1.ReadToEnd();
+        }
+        var thing = System.Text.Json.JsonSerializer.Deserialize<oauththingy>(apiResponse1);
+        ViewData["ur mom"] = $"Hello {thing.username}#{thing.discriminator}!";
+        HttpWebRequest webRequest2 = (HttpWebRequest)WebRequest.Create("https://discordapp.com/api/v8/users/@me/guilds");
+        webRequest2.Method = "Get";
+        webRequest2.ContentLength = 0;
+        webRequest2.Headers.Add("Authorization", "Bearer " + access_token);
+        webRequest2.ContentType = "application/x-www-form-urlencoded";
+
+        string apiResponse2 = "";
+        using (HttpWebResponse response2 = webRequest2.GetResponse() as HttpWebResponse)
+        {
+            StreamReader reader2 = new StreamReader(response2.GetResponseStream());
+            apiResponse2 = reader2.ReadToEnd();
+        }
+        using (StreamWriter bitch = new StreamWriter("feck.txt"))
+        {
+            bitch.Write(apiResponse2);
+        }
+
+        var serversbitch = System.Text.Json.JsonSerializer.Deserialize<Class1[]>(apiResponse2);
+        string html_shit = "<table><tr>";
+        int epicness = 0;
+        foreach (var server in serversbitch)
+        {
+            if (epicness > 6)
+            {
+                epicness = 0;
+                html_shit += "</tr><tr>";
+            }
+            html_shit += "<td style =\"max-width:150px; max-height:150px;\">";
+            if (string.IsNullOrEmpty(server.icon))
+            {
+                //we can assume server doesnt have an icon
+                var split_name = server.name.Split(' ');
+                StringBuilder sb = new StringBuilder();
+                foreach (string s in split_name)
+                {
+                    sb.Append(s[0]);
+                }
+                html_shit += $"<div style=\"text-align:center; width: 100px; height: 100px; border: 1px solid #000; background-color: #000; display: flex; justify-content: center; align-items: center;\"><p style=\"color:white; font-size: 30px; font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;\">{sb.ToString()}</p></div>";
+            }
+            else
+            {
+                //server should have an icon???
+                html_shit += $"<img height=\"100\" width=\"100\" src=\"https://cdn.discordapp.com/icons/{server.id}/{server.icon}.png\" alt=\"{server.name}'s image\">";
+            }
+            html_shit += $"<p>{server.name}</p></td>";
+
+            epicness++;
+
+        }
+        html_shit += "</tr></table>";
+        ViewData["e"] = html_shit;
+        //let me think uhhh
+    }
+}
+<h1>@ViewData["ur mom"]</h1>
+@Html.Raw(ViewData["e"])
