@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Discord.Net.Commands" Version="2.3.0-dev-20201122.3" />
+    <PackageReference Include="Discord.Net.Commands" Version="2.3.1" />
     <PackageReference Include="Discord.Net.WebSocket" Version="2.3.0-dev-20201122.3" />
   </ItemGroup>
 </Project>
